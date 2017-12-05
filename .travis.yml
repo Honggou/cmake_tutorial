@@ -8,10 +8,18 @@ addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
+      - llvm-toolchain-precise
     packages:
       - gcc-6
       - g++-6
       - cmake
+      - clang-3.7
+
+
+install:
+    - if [ "$CXX" = "g++" ]; then export CXX="g++-6" CC="gcc-6"; fi
+    - if [ "$CXX" = "clang++" ]; then export CXX="clang++-3.7" CC="clang-3.7"; fi
+
 script:
   # Check versions of gcc, g++ and cmake
   - gcc -v && g++ -v && cmake --version
