@@ -21,6 +21,10 @@ configure_file(
 # so that we will find TutorialConfig.h
 include_directories("${PROJECT_BINARY_DIR}")
 
+# option which will be shown in CMake GUI with a default value
+option (USE_MYMATH 
+        "Use tutorial provided math implementation" ON)
+
 # print location variables
 message(STATUS "CMAKE_BINARY_DIR=${CMAKE_BINARY_DIR}")
 message(STATUS "CMAKE_COMMAND=${CMAKE_COMMAND}")
