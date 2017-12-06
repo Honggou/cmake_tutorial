@@ -4,12 +4,15 @@
 #include <cstdlib>
 #include <cmath>
 #include <iostream>
+#include "TutorialConfig.h"
 
 int main(int argc, char* argv[])
 {
     int result = 0;
     if (argc < 2)
     {
+        std::cout << "Version " << Tutorial_VERSION_MAJOR
+            << "." << Tutorial_VERSION_MINOR << std::endl;
         std::cout << "Usage: ./Tutorial xxx" << std::endl;
         result = 2;
     }
