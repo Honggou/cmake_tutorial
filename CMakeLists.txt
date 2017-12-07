@@ -9,6 +9,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED on)
 
 #set(CMAKE_INSTALL_PREFIX "")
 
+# does this system provide the log and exp functions?
+include(CheckFunctionExists)
+check_function_exists(log HAVE_LOG)
+check_function_exists(exp HAVE_EXP)
+
 # The version number
 set(Tutorial_VERSION_MAJOR 1)
 set(Tutorial_VERSION_MINOR 0)
@@ -24,8 +29,7 @@ configure_file(
 include_directories("${PROJECT_BINARY_DIR}")
 
 # option which will be shown in CMake GUI with a default value
-option (USE_MYMATH 
-        "Use tutorial provided math implementation" ON)
+option (USE_MYMATH "Use tutorial provided math implementation" ON)
 
 # print location variables
 message(STATUS "CMAKE_BINARY_DIR=${CMAKE_BINARY_DIR}")

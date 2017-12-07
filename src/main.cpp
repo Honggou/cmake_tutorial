@@ -31,6 +31,9 @@ int main(int argc, char* argv[])
         double output_value = std::sqrt(input_value);
 #endif
 
+#if defined HAVE_LOG && defined HAVE_EXP
+        std::cout << "HAVE_LOG and HAVE_EXP defined, meaning the platform support exp and log functions" << std::endl;
+#endif
         std::cout << "The square root of " << input_value
             << " is " << output_value << std::endl;
     }
