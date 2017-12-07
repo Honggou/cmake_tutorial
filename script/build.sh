@@ -1,4 +1,8 @@
+#! /bin/bash
+
 cmake "-Bbuild" "-H./"
 
-cd build
+pushd build
 make
+
+popd

@@ -6,3 +6,5 @@ endif (USE_MYMATH)
 
 add_executable(TutorialBin main.cpp)
 target_link_libraries(TutorialBin ${EXTRA_LIBS})
+
+install(TARGETS TutorialBin DESTINATION bin)

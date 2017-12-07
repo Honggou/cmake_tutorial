@@ -7,9 +7,11 @@ LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED on)
 
+#set(CMAKE_INSTALL_PREFIX "")
+
 # The version number
-set (Tutorial_VERSION_MAJOR 1)
-set (Tutorial_VERSION_MINOR 0)
+set(Tutorial_VERSION_MAJOR 1)
+set(Tutorial_VERSION_MINOR 0)
 
 # configure a header file to pass some of the CMake setttings to the source code
 configure_file(
@@ -44,3 +46,5 @@ message(STATUS "PROJECT_SOURCE_DIR=${PROJECT_SOURCE_DIR}")
 add_subdirectory(src)
 #add_subdirectory(test)
 #add_subdirectory(doc)
+
+install(FILES "${PROJECT_BINARY_DIR}/TutorialConfig.h" DESTINATION include)
