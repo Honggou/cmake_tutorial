@@ -1,7 +1,12 @@
 #! /bin/bash
-pushd build
-make
 
-make DESTDIR=../install install
+if [ -d build ];
+then
+    pushd build
+    make
 
-popd
+    make DESTDIR=../install install
+
+    popd
+fi
+

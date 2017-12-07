@@ -20,12 +20,12 @@ set(Tutorial_VERSION_MINOR 0)
 
 # configure a header file to pass some of the CMake setttings to the source code
 configure_file(
-    "${PROJECT_SOURCE_DIR}/TutorialConfig.h.in"
-    "${PROJECT_BINARY_DIR}/TutorialConfig.h"
+    "${PROJECT_SOURCE_DIR}/tutorial_config.h.in"
+    "${PROJECT_BINARY_DIR}/tutorial_config.h"
 )
 
 # add the binary tree to the search path for include files
-# so that we will find TutorialConfig.h
+# so that we will find tutorial_config.h
 include_directories("${PROJECT_BINARY_DIR}")
 
 # option which will be shown in CMake GUI with a default value
@@ -51,4 +51,4 @@ add_subdirectory(src)
 #add_subdirectory(test)
 #add_subdirectory(doc)
 
-install(FILES "${PROJECT_BINARY_DIR}/TutorialConfig.h" DESTINATION include)
+install(FILES "${PROJECT_BINARY_DIR}/tutorial_config.h" DESTINATION include)

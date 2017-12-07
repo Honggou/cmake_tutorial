@@ -3,7 +3,7 @@
 
 #include <cstdlib>
 #include <iostream>
-#include <TutorialConfig.h>
+#include <tutorial_config.h>
 #ifdef USE_MYMATH
 #include <tutorial/math.h>
 #else
