@@ -50,7 +50,7 @@ message(STATUS "Tutorial_BINARY_DIR=${Tutorial_BINARY_DIR}")
 message(STATUS "Tutorial_SOURCE_DIR=${Tutorial_SOURCE_DIR}")
 
 add_subdirectory(src)
-#add_subdirectory(test)
+add_subdirectory(test)
 #add_subdirectory(doc)
 
 install(FILES "${PROJECT_BINARY_DIR}/tutorial_config.h" DESTINATION include)

@@ -12,7 +12,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 # install generated files
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/sqrt_table.h DESTINATION include/tutorial)
- 
+
 # add the main library
 add_library(MathLib math.cpp ${CMAKE_CURRENT_BINARY_DIR}/sqrt_table.h)
 

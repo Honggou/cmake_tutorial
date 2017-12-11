@@ -25,7 +25,10 @@ script:
   - gcc -v && g++ -v && cmake --version
   # build
   - script/build.sh
+  # install
+  - script/install.sh
   # test
+  - script/test.sh
 
 #notifications:
 #  email:
