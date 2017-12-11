@@ -46,6 +46,8 @@ message(STATUS "PROJECT_NAME=${PROJECT_NAME}")
 message(STATUS "CMAKE_PROJECT_NAME=${CMAKE_PROJECT_NAME}")
 message(STATUS "PROJECT_BINARY_DIR=${PROJECT_BINARY_DIR}")
 message(STATUS "PROJECT_SOURCE_DIR=${PROJECT_SOURCE_DIR}")
+message(STATUS "Tutorial_BINARY_DIR=${Tutorial_BINARY_DIR}")
+message(STATUS "Tutorial_SOURCE_DIR=${Tutorial_SOURCE_DIR}")
 
 add_subdirectory(src)
 #add_subdirectory(test)

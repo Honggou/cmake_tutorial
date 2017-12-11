@@ -1,8 +1,8 @@
 
 #include <cmath>
 #include <cstdio>
-#include <iostream>
 #include <fstream>
+#include <iostream>
 #include <string>
 
 int main(int argc, char* argv[])
@@ -10,7 +10,8 @@ int main(int argc, char* argv[])
     int result = 0;
 
     // make sure we have enough arguments
-    if (argc < 2) {
+    if (argc < 2)
+    {
         result = 1;
     }
 
@@ -23,9 +24,10 @@ int main(int argc, char* argv[])
         file_stream << "#pragma once" << std::endl;
         file_stream << "namespace tutorial" << std::endl;
         file_stream << "{" << std::endl;
-        
+
         file_stream << "const double kSqrtTable[] = {" << std::endl;
-        for (auto i = 0U; i < 10U; ++i) {
+        for (auto i = 0U; i < 10U; ++i)
+        {
             file_stream << "    " << std::sqrt(i) << "," << std::endl;
         }
 
