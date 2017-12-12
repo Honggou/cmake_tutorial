@@ -21,10 +21,16 @@ install:
     - if [ "$CXX" = "clang++" ]; then export CXX="clang++-3.7" CC="clang-3.7"; fi
     # gtest install workaround
     - sudo apt-get install libgtest-dev
-    - cd /usr/src/gtest
+    - pushd /usr/src/gtest
     - sudo cmake .
     - sudo make
-    - sudo make install
+    - sudo cp *.a /usr/lib
+    - popd
+    - pushd /usr/src/gmock
+    - sudo cmake .
+    - sudo make
+    - sudo cp *.a /usr/lib
+    - popd
 
 script:
   # Check versions of gcc, g++ and cmake
