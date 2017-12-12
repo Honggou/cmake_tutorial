@@ -17,15 +17,21 @@ addons:
 
 before_install:
   - wget https://cmake.org/files/v3.8/cmake-3.8.0.tar.gz
-  - tar -xzvf cmake-3.8.0.tar.gz
-  - cd cmake-3.8.0
+  - tar -xzf cmake-3.8.0.tar.gz
+  - pushd cmake-3.8.0
   - ./configure
   - make
   - sudo make install
+  - popd
+  - rm -rf cmake-3.8.0
+  - export PATH=/usr/local/bin:$PATH
+  - export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
 install:
     - if [ "$CXX" = "g++" ]; then export CXX="g++-6" CC="gcc-6"; fi
     - if [ "$CXX" = "clang++" ]; then export CXX="clang++-3.7" CC="clang-3.7"; fi
+    # Check versions of gcc, g++ and cmake
+    - gcc -v && g++ -v && cmake --version
     # gtest install workaround
     - sudo apt-get install libgtest-dev
     - sudo apt-get install google-mock
@@ -41,8 +47,6 @@ install:
     - popd
 
 script:
-  # Check versions of gcc, g++ and cmake
-  - gcc -v && g++ -v && cmake --version
   # build
   - script/build.sh
   # install
