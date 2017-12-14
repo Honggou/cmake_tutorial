@@ -10,8 +10,11 @@ find_library(GMOCK_LIB
 message(STATUS "GMOCK_LIB=${GMOCK_LIB}")
 
 add_executable(MathTestBin test_math.cpp)
+
+# The GMock need libpthread.so
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
+
 target_link_libraries(MathTestBin
     ${GMOCK_LIB}
     MathLib

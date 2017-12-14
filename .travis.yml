@@ -42,8 +42,7 @@ install:
 
 script:
   # Check versions of gcc, g++ and cmake
-  - grep "StringStreamToString" /usr/local/include/gtest/internal/gtest-string.h
-  - grep "StringStreamToString" /usr/include/gtest/internal/gtest-string.h
+  - nm ~/gmock/libgmock_main.a | grep EqFailure
   - gcc -v && g++ -v && cmake --version
   # build
   - script/build.sh
