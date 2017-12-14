@@ -14,7 +14,7 @@ addons:
       - g++-6
       - cmake
       - clang
-      - libgtest-dev
+      #- libgtest-dev
       - google-mock
       - libpthread-stubs0-dev
 
@@ -28,11 +28,11 @@ install:
     - if [ "$CXX" = "g++" ]; then export CXX="g++-6" CC="gcc-6"; fi
     - if [ "$CXX" = "clang++" ]; then export CXX="clang++-3.7" CC="clang-3.7"; fi
     # gtest install workaround
-    - mkdir ~/gtest && cd ~/gtest
-    - export LD_LIBRARY_PATH=$(pwd):$LD_LIBRARY_PATH
-    - cp -r /usr/src/gtest/* ./
-    - cmake -D CMAKE_INSTALL_PREFIX:PATH=./ ./
-    - make
+    #- mkdir ~/gtest && cd ~/gtest
+    #- export LD_LIBRARY_PATH=$(pwd):$LD_LIBRARY_PATH
+    #- cp -r /usr/src/gtest/* ./
+    #- cmake -D CMAKE_INSTALL_PREFIX:PATH=./ ./
+    #- make
     - mkdir ~/gmock && cd ~/gmock
     - export LD_LIBRARY_PATH=$(pwd):$LD_LIBRARY_PATH
     - cp -r /usr/src/gmock/* ./
@@ -42,7 +42,6 @@ install:
 
 script:
   # Check versions of gcc, g++ and cmake
-  - locate libpthread.so
   - gcc -v && g++ -v && cmake --version
   # build
   - script/build.sh
