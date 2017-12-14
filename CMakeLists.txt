@@ -1,5 +1,5 @@
 
-cmake_minimum_required(VERSION 3.4 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.2 FATAL_ERROR)
 
 project(Tutorial
 LANGUAGES CXX)
@@ -10,9 +10,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED on)
 #set(CMAKE_INSTALL_PREFIX "")
 
 # does this system provide the log and exp functions?
-#include(CheckFunctionExists)
-#check_function_exists(log HAVE_LOG)
-#check_function_exists(exp HAVE_EXP)
+include(CheckFunctionExists)
+check_function_exists(log HAVE_LOG)
+check_function_exists(exp HAVE_EXP)
 
 # The version number
 set(Tutorial_VERSION_MAJOR 1)
