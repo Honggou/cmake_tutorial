@@ -1,4 +1,5 @@
 link_directories($ENV{LD_LIBRARY_PATH})
+message("test=$ENV{LD_LIBRARY_PATH}")
 
 include_directories("${CMAKE_SOURCE_DIR}/include")
 
