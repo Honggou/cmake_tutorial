@@ -4,7 +4,7 @@ include_directories("${CMAKE_SOURCE_DIR}/include")
 
 find_library(GMOCK_LIB
     NAMES gmock_main libgmock_main
-    HINTS ~/gmock ~/gtest /usr/lib /usr/local/lib
+    HINTS ~/release-1.8.0/lib/ /usr/lib /usr/local/lib
 )
 
 message(STATUS "GMOCK_LIB=${GMOCK_LIB}")

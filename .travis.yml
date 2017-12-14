@@ -14,15 +14,17 @@ addons:
       - g++-6
       - cmake
       - clang
-      - libgtest-dev
-      - google-mock
+      #- libgtest-dev
+      #- google-mock
       - libpthread-stubs0-dev
 
-#before_install:
+before_install:
 #  - wget https://cmake.org/files/v3.8/cmake-3.8.0.tar.gz
 #  - tar -xzf cmake-3.8.0.tar.gz
 #  - export PATH=/usr/local/bin:$PATH
 #  - export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib/:$LD_LIBRARY_PATH
+    - wget https://github.com/google/googletest/archive/release-1.8.0.tar.gz
+    - tar -xzf release-1.8.0.tar.gz
 
 install:
     - if [ "$CXX" = "g++" ]; then export CXX="g++-6" CC="gcc-6"; fi
@@ -33,16 +35,21 @@ install:
     #- cp -r /usr/src/gtest/* ./
     #- cmake -D CMAKE_INSTALL_PREFIX:PATH=./ ./
     #- make
-    - mkdir ~/gmock && cd ~/gmock
-    - export LD_LIBRARY_PATH=$(pwd):$LD_LIBRARY_PATH
-    - cp -r /usr/src/gmock/* ./
+    #- mkdir ~/gmock && cd ~/gmock
+    #- export LD_LIBRARY_PATH=$(pwd):$LD_LIBRARY_PATH
+    #- cp -r /usr/src/gmock/* ./
+    #- cmake -D CMAKE_INSTALL_PREFIX:PATH=./ ./
+    #- make
+    - cd release-1.8.0/
+    - export CPLUS_INCLUDE_PATH=$(pwd)/include:$CPLUS_INCLUDE_PATH
+    - export LD_LIBRARY_PATH=$(pwd)/lib/:$LD_LIBRARY_PATH
     - cmake -D CMAKE_INSTALL_PREFIX:PATH=./ ./
     - make
+    - make install
     - cd "${TRAVIS_BUILD_DIR}"
 
 script:
   # Check versions of gcc, g++ and cmake
-  - nm ~/gmock/libgmock_main.a | grep EqFailure
   - gcc -v && g++ -v && cmake --version
   # build
   - script/build.sh
