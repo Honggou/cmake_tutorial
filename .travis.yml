@@ -41,8 +41,6 @@ install:
 
 script:
   # Check versions of gcc, g++ and cmake
-  - echo "LD_LIBRARY_PATH=$LD_LIBRARY_PATH"
-  - ls ~/gmock
   - gcc -v && g++ -v && cmake --version
   # build
   - script/build.sh

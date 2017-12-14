@@ -1,4 +1,4 @@
-#link_directories("/usr/local/lib/" "${PROJECT_BINARY_DIR/src/tutorial}")
+link_directories($ENV{LD_LIBRARY_PATH})
 
 include_directories("${CMAKE_SOURCE_DIR}/include")
 
