@@ -26,6 +26,7 @@ before_install:
 install:
     - if [ "$CXX" = "g++" ]; then export CXX="g++-6" CC="gcc-6"; fi
     - if [ "$CXX" = "clang++" ]; then export CXX="clang++-3.7" CC="clang-3.7"; fi
+    # install cmake 3.8 manually
     - cd cmake-3.8.0
     - ./configure
     - make
@@ -44,6 +45,7 @@ install:
 script:
   # Check versions of gcc, g++ and cmake
   - sudo ls /usr/lib/libg*
+  - locate lippthread.so
   - gcc -v && g++ -v && cmake --version
   # build
   - script/build.sh
