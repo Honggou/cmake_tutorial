@@ -42,6 +42,7 @@ install:
 
 script:
   # Check versions of gcc, g++ and cmake
+  - locate libpthread.so
   - gcc -v && g++ -v && cmake --version
   # build
   - script/build.sh
