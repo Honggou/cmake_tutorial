@@ -24,7 +24,7 @@ before_install:
 #  - export PATH=/usr/local/bin:$PATH
 #  - export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib/:$LD_LIBRARY_PATH
     - wget https://github.com/google/googletest/archive/release-1.8.0.tar.gz
-    - tar -xzf release-1.8.0.tar.gz
+    - tar -xzf googletest-release-1.8.0.tar.gz
 
 install:
     - if [ "$CXX" = "g++" ]; then export CXX="g++-6" CC="gcc-6"; fi
@@ -40,7 +40,7 @@ install:
     #- cp -r /usr/src/gmock/* ./
     #- cmake -D CMAKE_INSTALL_PREFIX:PATH=./ ./
     #- make
-    - cd release-1.8.0/
+    - cd googletest-release-1.8.0/
     - export CPLUS_INCLUDE_PATH=$(pwd)/include:$CPLUS_INCLUDE_PATH
     - export LD_LIBRARY_PATH=$(pwd)/lib/:$LD_LIBRARY_PATH
     - cmake -D CMAKE_INSTALL_PREFIX:PATH=./ ./
