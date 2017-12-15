@@ -2,12 +2,12 @@
 
 include_directories("${CMAKE_SOURCE_DIR}/include")
 
-find_library(GMOCK_LIB
-    NAMES gmock_main libgmock_main
-    HINTS ${CMAKE_SOURCE_DIR}/googletest-release-1.8.0/lib/ /usr/lib /usr/local/lib
-)
+#find_library(GMOCK_LIB
+#    NAMES gmock_main libgmock_main
+#    HINTS ${CMAKE_SOURCE_DIR}/googletest-release-1.8.0/lib/ /usr/lib /usr/local/lib
+#)
 
-message(STATUS "GMOCK_LIB=${GMOCK_LIB}")
+message(STATUS "LD_LIBRARY_PATH=$ENV{LD_LIBRARY_PATH}")
 
 add_executable(MathTestBin test_math.cpp)
 
@@ -16,7 +16,7 @@ set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
 target_link_libraries(MathTestBin
-    ${GMOCK_LIB}
+    gmock_main
     MathLib
     Threads::Threads
 )
