@@ -1,4 +1,4 @@
-#link_directories($ENV{LD_LIBRARY_PATH})
+link_directories($ENV{LD_LIBRARY_PATH})
 
 include_directories("${CMAKE_SOURCE_DIR}/include")
 
@@ -6,8 +6,6 @@ include_directories("${CMAKE_SOURCE_DIR}/include")
 #    NAMES gmock_main libgmock_main
 #    HINTS ${CMAKE_SOURCE_DIR}/googletest-release-1.8.0/lib/ /usr/lib /usr/local/lib
 #)
-
-message(STATUS "LD_LIBRARY_PATH=$ENV{LD_LIBRARY_PATH}")
 
 add_executable(MathTestBin test_math.cpp)
 
